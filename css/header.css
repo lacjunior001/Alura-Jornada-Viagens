@@ -5,23 +5,95 @@ header {
     justify-content: space-between;
     align-items: flex-start;
     padding: 38px 48px;
+    position: relative;
 }
 
-header nav {
+nav {
     display: none;
 }
 
-.logo{
+.logo-mobile {
     width: 68px;
     height: 64px;
+}
+
+.logo-desktop {
+    display: none;
 }
 
 .menu {
     margin-top: 10px;
 }
 
+.list-link li {
+    list-style: none;
+    margin: 16px 0;
+}
+
+.list-link li a {
+    text-decoration: none;
+    color: var(--background-secondary-color);
+    font-weight: var(--menu-text-weight);
+    font-size: 24px;
+}
+
+input[type="checkbox"]:checked~nav {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--background-tertiary-color);
+}
+
 .menuImg {
     width: 30px;
     margin-left: 32px;
     margin-top: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .menuImg {
+        display: none;
+    }
+
+    nav {
+        display: block;
+        position: static;
+        width: auto;
+        background-color: transparent;
+    }
+
+    .list-link {
+        display: flex;
+        flex-direction: row;
+        gap: 32px;
+    }
+
+    .list-link li {
+        margin: 0;
+    }
+
+    .list-link li a {
+        color: var(--background-secondary-color);
+        font-weight: var(--menu-text-weight);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .logo-desktop {
+        display: block;
+    }
+
+    .logo-mobile {
+        display: none;
+    }
+
+    header {
+        padding: 38px 120px;
+    }
+
+    .list-link li a:hover {
+        color: var(--primary-color);
+    }
 }
